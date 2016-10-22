@@ -26,6 +26,8 @@ function daytip_export_callback() {
 }
 
 add_action( 'admin_post_daytip_export', function() {
+	if ( !current_user_can( 'edit_pages' ) )
+		exit;
 	header( 'Content-Type: text/plain; charset=utf-8' );
 	header( 'Content-Disposition: attachment; filename="tips.txt"' );
 	$posts = get_posts( [

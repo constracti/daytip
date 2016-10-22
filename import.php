@@ -44,17 +44,12 @@ add_action( 'admin_notices', function() {
 		return;
 	if ( !array_key_exists( 'message', $_GET ) )
 		return;
-	$notice = daytip_import_notice( $_GET['message'] );
-	if ( is_null( $notice ) )
-		return;
-?>
-<div class="notice notice-<?= $notice['class'] ?> is-dismissible">
-	<p><?= $notice['message'] ?></p>
-</div>
-<?php
+	daytip_notice( daytip_import_notice( $_GET['message'] ) );
 } );
 
 add_action( 'admin_post_daytip_import', function() {
+	if ( !current_user_can( 'edit_pages' ) )
+		exit;
 	if ( !array_key_exists( 'daytip', $_FILES ) )
 		daytip_import_redirect( 1 );
 	$file = $_FILES['daytip'];
@@ -64,7 +59,7 @@ add_action( 'admin_post_daytip_import', function() {
 	$tips = [];
 	foreach ( $lines as $line ) {
 		$tip = mb_split( "\t", $line, 2 );
-		if ( count( $tip ) !== 2 || preg_match( '/^\d{2}-\d{2}$/', $tip[0] ) !== 1 )
+		if ( count( $tip ) !== 2 || is_null( daytip_monthday::parse( $tip[0] ) ) )
 			daytip_import_redirect( 3 );
 		$tips[] = $tip;
 	}

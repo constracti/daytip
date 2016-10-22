@@ -18,9 +18,9 @@ add_action( 'init', function() {
 			'not_found_in_trash' => __( 'No tips found in Trash', 'daytip' ),
 			// parent_item_colon
 			'all_items' => __( 'All Tips', 'daytip' ),
-			'archives' => __( 'Tip Archives', 'daytip' ),
-			'insert_into_item' => __( 'Insert into tip', 'daytip' ),
-			'uploaded_to_this_item' => __( 'Uploaded to this tip', 'daytip' ),
+			// 'archives' => __( 'Tip Archives', 'daytip' ),
+			// 'insert_into_item' => __( 'Insert into tip', 'daytip' ),
+			// 'uploaded_to_this_item' => __( 'Uploaded to this tip', 'daytip' ),
 			// *featured_image
 			// menu_name
 			// *items_list*

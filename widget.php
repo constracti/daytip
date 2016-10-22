@@ -23,9 +23,7 @@ class daytip_widget extends WP_Widget {
 		echo $args['before_widget'] . "\n";
 		if ( !is_null( $instance['title'] ) )
 			echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'] . "\n";
-		$dt = new DateTime();
-		$dt->setTimestamp( current_time( 'timestamp' ) );
-		$title = $dt->format( 'm-d' );
+		$title = daytip_monthday::today()->title();
 		$posts = get_posts( [
 			'orderby' => 'rand',
 			'paged' => 1,
