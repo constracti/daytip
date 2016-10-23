@@ -45,6 +45,13 @@ class daytip_monthday {
 		return $this->day <=> $obj->day;
 	}
 
+	public function abs(): int {
+		$abs = $this->day;
+		for ( $m = $this->month - 1; $m >= 1; $m-- )
+			$abs += self::limit( $m );
+		return $abs;
+	}
+
 	private static function limit( int $m ): int {
 		switch ( $m ) {
 			case  2:

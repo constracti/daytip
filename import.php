@@ -21,6 +21,7 @@ function daytip_import_callback() {
 	<p><?= __( 'Upload a text file listing all tips to be imported into the database.', 'daytip' ) ?></p>
 	<form method="post" action="<?= admin_url( 'admin-post.php' ) ?>" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="daytip_import" />
+		<?php wp_nonce_field( 'daytip-import', '_wpnonce', FALSE ); ?>
 		<table class="form-table">
 			<tbody>
 				<tr>
@@ -50,6 +51,7 @@ add_action( 'admin_notices', function() {
 add_action( 'admin_post_daytip_import', function() {
 	if ( !current_user_can( 'edit_pages' ) )
 		exit;
+	check_admin_referer( 'daytip-import' );
 	if ( !array_key_exists( 'daytip', $_FILES ) )
 		daytip_import_redirect( 1 );
 	$file = $_FILES['daytip'];

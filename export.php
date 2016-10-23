@@ -15,12 +15,14 @@ add_action( 'admin_menu', function() {
 } );
 
 function daytip_export_callback() {
+	$url = admin_url( 'admin-post.php?action=daytip_export' );
+	$url = wp_nonce_url( $url, 'daytip-export' );
 ?>
 <div class="wrap">
 	<h1><?= __( 'Export', 'daytip' ) ?></h1>
 	<p><?= __( 'Download a text file listing all tips included in the database.', 'daytip' ) ?></p>
 	<p><?= daytip_file_format() ?></p>
-	<p><a href="<?= admin_url( 'admin-post.php?action=daytip_export' ) ?>" class="button button-primary"><?= __( 'Export', 'daytip' ) ?></a></p>
+	<p><a href="<?= $url ?>" class="button button-primary"><?= __( 'Export', 'daytip' ) ?></a></p>
 </div>
 <?php
 }
@@ -28,6 +30,7 @@ function daytip_export_callback() {
 add_action( 'admin_post_daytip_export', function() {
 	if ( !current_user_can( 'edit_pages' ) )
 		exit;
+	check_admin_referer( 'daytip-export' );
 	header( 'Content-Type: text/plain; charset=utf-8' );
 	header( 'Content-Disposition: attachment; filename="tips.txt"' );
 	$posts = get_posts( [

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-22 09:39+0000\n"
+"POT-Creation-Date: 2016-10-23 22:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,51 +14,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: shift.php:9 shift.php:10 shift.php:21 shift.php:43
+#: shift.php:9 shift.php:10 shift.php:24 shift.php:47
 msgid "Shift"
 msgstr ""
 
-#: shift.php:22
+#: shift.php:25
 msgid "Circularly shift tips to fill in the selected date range."
 msgstr ""
 
-#: shift.php:28
+#: shift.php:32
 msgid "From"
 msgstr ""
 
-#: shift.php:31 shift.php:38
+#: shift.php:35 shift.php:42
 msgid "example"
 msgstr ""
 
-#: shift.php:31 shift.php:38
+#: shift.php:35
 msgid "today"
 msgstr ""
 
-#: shift.php:35
+#: shift.php:39
 msgid "To"
 msgstr ""
 
-#: shift.php:91
+#: shift.php:42
+msgid "tomorrow"
+msgstr ""
+
+#: shift.php:127
 msgid "Circular shift was successful."
 msgstr ""
 
-#: shift.php:92
+#: shift.php:128
 msgid "Date range not specified."
 msgstr ""
 
-#: shift.php:93
+#: shift.php:129
 msgid "Date limits are not valid."
 msgstr ""
 
-#: shift.php:94
+#: shift.php:130
 msgid "There are not enough tips in the database to cover this date range."
 msgstr ""
 
-#: export.php:9 export.php:10 export.php:20 export.php:23
+#: export.php:9 export.php:10 export.php:22 export.php:25
 msgid "Export"
 msgstr ""
 
-#: export.php:21
+#: export.php:23
 msgid "Download a text file listing all tips included in the database."
 msgstr ""
 
@@ -107,7 +111,7 @@ msgstr ""
 msgid "All Tips"
 msgstr ""
 
-#: import.php:9 import.php:10 import.php:20 import.php:35
+#: import.php:9 import.php:10 import.php:20 import.php:36
 msgid "Import"
 msgstr ""
 
@@ -115,23 +119,23 @@ msgstr ""
 msgid "Upload a text file listing all tips to be imported into the database."
 msgstr ""
 
-#: import.php:27
+#: import.php:28
 msgid "Input file"
 msgstr ""
 
-#: import.php:84
+#: import.php:86
 msgid "Import was successful."
 msgstr ""
 
-#: import.php:85
+#: import.php:87
 msgid "Input file not specified."
 msgstr ""
 
-#: import.php:86
+#: import.php:88
 msgid "Upload failed due to an error."
 msgstr ""
 
-#: import.php:87
+#: import.php:89
 msgid "File parsing failed."
 msgstr ""
 

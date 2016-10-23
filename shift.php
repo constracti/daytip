@@ -15,27 +15,29 @@ add_action( 'admin_menu', function() {
 } );
 
 function daytip_shift_callback() {
-	$today = daytip_monthday::today()->title();
+	$today = daytip_monthday::today();
+	$tomorrow = $today->next();
 ?>
 <div class="wrap">
 	<h1><?= __( 'Shift', 'daytip' ) ?></h1>
 	<p><?= __( 'Circularly shift tips to fill in the selected date range.', 'daytip' ) ?></p>
 	<form method="post" action="<?= admin_url( 'admin-post.php' ) ?>">
 		<input type="hidden" name="action" value="daytip_shift" />
+		<?php wp_nonce_field( 'daytip-shift', '_wpnonce', FALSE ); ?>
 		<table class="form-table">
 			<tbody>
 				<tr>
 					<th scope="row"><label for="daytip-beg"><?= __( 'From', 'daytip' ) ?></label></th>
 					<td>
-						<input type="text" name="beg" value="<?= $today ?>" id="daytip-beg" class="regular-text" required="required" autocomplete="off" />
-						<p class="description"><?= sprintf( '%s: %s (%s)', __( 'example', 'daytip' ), $today, __( 'today', 'daytip' ) ) ?></p>
+						<input type="text" name="beg" id="daytip-beg" class="regular-text" required="required" autocomplete="off" />
+						<p class="description"><?= sprintf( '%s: %s (%s)', __( 'example', 'daytip' ), $today->title(), __( 'today', 'daytip' ) ) ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="daytip-end"><?= __( 'To', 'daytip' ) ?></label></th>
 					<td>
-						<input type="text" name="end" value="<?= $today ?>" id="daytip-end" class="regular-text" required="required" autocomplete="off" />
-						<p class="description"><?= sprintf( '%s: %s (%s)', __( 'example', 'daytip' ), $today, __( 'today', 'daytip' ) ) ?></p>
+						<input type="text" name="end" id="daytip-end" class="regular-text" required="required" autocomplete="off" />
+						<p class="description"><?= sprintf( '%s: %s (%s)', __( 'example', 'daytip' ), $tomorrow->title(), __( 'tomorrow', 'daytip' ) ) ?></p>
 					</td>
 				</tr>
 			</tbody>
@@ -49,6 +51,7 @@ function daytip_shift_callback() {
 add_action( 'admin_post_daytip_shift', function() {
 	if ( !current_user_can( 'edit_pages' ) )
 		exit;
+	check_admin_referer( 'daytip-shift' );
 	if ( !array_key_exists( 'beg', $_POST ) || !array_key_exists( 'end', $_POST ) )
 		daytip_shift_redirect( 1 );
 	$beg = daytip_monthday::parse( $_POST['beg'] );
@@ -68,6 +71,37 @@ add_action( 'admin_post_daytip_shift', function() {
 		$cnt++;
 	if ( $len < $cnt )
 		daytip_shift_redirect( 3 );
+	for ( $phase = 0; $phase <= 1; $phase++ ) {
+		$cnt = 0;
+		$restart = FALSE;
+		$cur = $beg;
+		while ( TRUE ) {
+			if ( !$restart ) {
+				$restart = $cur->comp( $beg ) < 0;
+				if ( $restart )
+					$cnt = 0;
+			}
+			while ( $cnt < $len ) {
+				$cmp = $cur->comp( daytip_monthday::parse( $posts[ $cnt ]->post_title ) );
+				if ( $cmp <= 0 )
+					break;
+				$cnt++;
+			}
+			if ( $cmp < 0 ) {
+				$posts[ $cnt ]->post_title = $cur->title();
+				wp_update_post( $posts[ $cnt ] );
+			} elseif ( $cmp !== 0 ) {
+				$post = array_shift( $posts );
+				$post->post_title = $cur->title();
+				wp_update_post( $post );
+				array_push( $posts, $post );
+				$cnt = $len - 1;
+			}
+			if ( $cur->comp( $end ) === 0 )
+				break;
+			$cur = $cur->next();
+		}
+	}
 	daytip_shift_redirect();
 } );
 
