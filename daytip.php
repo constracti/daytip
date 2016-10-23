@@ -49,5 +49,5 @@ function daytip_notice( $notice, bool $is_dismissible = TRUE, $dashicon = NULL )
 function daytip_file_format(): string {
 	return sprintf( '<span><b>%s</b>: %s</span>', __( 'Encoding', 'daytip' ), 'UTF-8' ) . "\n" .
 	'<br >' . "\n" .
-	sprintf( '<span><b>%s</b>: %s</span>', __( 'Structure', 'daytip' ), __( 'Each line consists of a title and the tip, separated by a tab character.', 'daytip' ) ) . "\n";
+	sprintf( '<span><b>%s</b>: %s</span>', __( 'Structure', 'daytip' ), __( 'Each line of the file consists of a title and the lines of the tip, separated by tab characters.', 'daytip' ) ) . "\n";
 }

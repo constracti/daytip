@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-23 22:29+0000\n"
+"POT-Creation-Date: 2016-10-23 23:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,47 +14,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: shift.php:9 shift.php:10 shift.php:24 shift.php:47
+#: shift.php:9 shift.php:10 shift.php:22 shift.php:45
 msgid "Shift"
 msgstr ""
 
-#: shift.php:25
+#: shift.php:23
 msgid "Circularly shift tips to fill in the selected date range."
 msgstr ""
 
-#: shift.php:32
+#: shift.php:30
 msgid "From"
 msgstr ""
 
-#: shift.php:35 shift.php:42
+#: shift.php:33 shift.php:40
 msgid "example"
 msgstr ""
 
-#: shift.php:35
+#: shift.php:33
 msgid "today"
 msgstr ""
 
-#: shift.php:39
+#: shift.php:37
 msgid "To"
 msgstr ""
 
-#: shift.php:42
+#: shift.php:40
 msgid "tomorrow"
 msgstr ""
 
-#: shift.php:127
+#: shift.php:125
 msgid "Circular shift was successful."
 msgstr ""
 
-#: shift.php:128
+#: shift.php:126
 msgid "Date range not specified."
 msgstr ""
 
-#: shift.php:129
+#: shift.php:127
 msgid "Date limits are not valid."
 msgstr ""
 
-#: shift.php:130
+#: shift.php:128
 msgid "There are not enough tips in the database to cover this date range."
 msgstr ""
 
@@ -123,19 +123,19 @@ msgstr ""
 msgid "Input file"
 msgstr ""
 
-#: import.php:86
+#: import.php:87
 msgid "Import was successful."
 msgstr ""
 
-#: import.php:87
+#: import.php:88
 msgid "Input file not specified."
 msgstr ""
 
-#: import.php:88
+#: import.php:89
 msgid "Upload failed due to an error."
 msgstr ""
 
-#: import.php:89
+#: import.php:90
 msgid "File parsing failed."
 msgstr ""
 
@@ -155,7 +155,8 @@ msgstr ""
 
 #: daytip.php:52
 msgid ""
-"Each line consists of a title and the tip, separated by a tab character."
+"Each line of the file consists of a title and the lines of the tip, "
+"separated by tab characters."
 msgstr ""
 
 #: widget.php:15

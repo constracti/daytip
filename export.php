@@ -41,5 +41,5 @@ add_action( 'admin_post_daytip_export', function() {
 		'post_status' => 'publish',
 	] );
 	foreach ( $posts as $post )
-		echo $post->post_title . "\t" . $post->post_content . "\n";
+		echo $post->post_title . "\t" . mb_ereg_replace( '\r\n|\r|\n', "\t", $post->post_content, 'z' ) . "\n";
 } );

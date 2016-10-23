@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Day Tip\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-23 22:35+0000\n"
-"PO-Revision-Date: 2016-10-23 22:39+0000\n"
+"POT-Creation-Date: 2016-10-23 23:16+0000\n"
+"PO-Revision-Date: 2016-10-23 23:17+0000\n"
 "Last-Translator: constracti <constracti@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -13,57 +13,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#. URI of the plugin
-msgid "https://github.com/constracti/daytip"
-msgstr "https://github.com/constracti/daytip"
+#: daytip.php:52
+msgid ""
+"Each line of the file consists of a title and the lines of the tip, "
+"separated by tab characters."
+msgstr ""
+"Κάθε γραμμή του αρχείου αποτελείται από τον τίτλο και τις γραμμές της "
+"συμβουλής, χωρισμένα από χαρακτήρες tab."
 
-#. Author of the plugin
-msgid "constracti"
-msgstr "constracti"
-
-#: shift.php:42
-msgid "tomorrow"
-msgstr "αύριο"
-
-#: shift.php:9 shift.php:10 shift.php:24 shift.php:47
+#: shift.php:9 shift.php:10 shift.php:22 shift.php:45
 msgid "Shift"
 msgstr "Ολίσθηση"
 
-#: shift.php:25
+#: shift.php:23
 msgid "Circularly shift tips to fill in the selected date range."
 msgstr ""
 "Κυκλική ολίσθηση των συμβουλών ώστε να συμπληρώσουν το επιλεγμένο εύρος "
 "ημερομηνιών."
 
-#: shift.php:32
+#: shift.php:30
 msgid "From"
 msgstr "Από"
 
-#: shift.php:35 shift.php:42
+#: shift.php:33 shift.php:40
 msgid "example"
 msgstr "παράδειγμα"
 
-#: shift.php:35
+#: shift.php:33
 msgid "today"
 msgstr "σήμερα"
 
-#: shift.php:39
+#: shift.php:37
 msgid "To"
 msgstr "Έως"
 
-#: shift.php:127
+#: shift.php:40
+msgid "tomorrow"
+msgstr "αύριο"
+
+#: shift.php:125
 msgid "Circular shift was successful."
 msgstr "Η κυκλική ολίσθηση ήταν επιτυχής."
 
-#: shift.php:128
+#: shift.php:126
 msgid "Date range not specified."
 msgstr "Το εύρος των ημερομηνιών δεν έχει οριστεί."
 
-#: shift.php:129
+#: shift.php:127
 msgid "Date limits are not valid."
 msgstr "Το όρια δεν αποτελούν έγκυρες ημερομηνίες."
 
-#: shift.php:130
+#: shift.php:128
 msgid "There are not enough tips in the database to cover this date range."
 msgstr ""
 "Δεν υπάρχουν αρκετές συμβουλές στη βάση δεδομένων για να καλύψουν το "
@@ -138,19 +138,19 @@ msgstr ""
 msgid "Input file"
 msgstr "Αρχείο εισόδου"
 
-#: import.php:86
+#: import.php:87
 msgid "Import was successful."
 msgstr "Η εισαγωγή ήταν επιτυχής."
 
-#: import.php:87
+#: import.php:88
 msgid "Input file not specified."
 msgstr "Δεν έχει οριστεί το αρχείο εισόδου."
 
-#: import.php:88
+#: import.php:89
 msgid "Upload failed due to an error."
 msgstr "Το ανέβασμα απέτυχε λόγω σφάλματος."
 
-#: import.php:89
+#: import.php:90
 msgid "File parsing failed."
 msgstr "Η ανάγνωση του αρχείου απέτυχε."
 
@@ -170,13 +170,6 @@ msgstr "Κωδικοποίηση"
 msgid "Structure"
 msgstr "Δομή"
 
-#: daytip.php:52
-msgid ""
-"Each line consists of a title and the tip, separated by a tab character."
-msgstr ""
-"Κάθε γραμμή αποτελείται από τον τίτλο και τη συμβουλή, που χωρίζονται από "
-"ένα χαρακτήρα tab."
-
 #: widget.php:15
 msgid "Displays a widget with a tip of the current day."
 msgstr "Εμφανίζει μία μικροεφαρμογή με τη συμβουλή της τρέχουσας ημέρας."
@@ -193,3 +186,11 @@ msgstr "Τίτλος"
 #. Description of the plugin
 msgid "Display a unique tip each day of the year."
 msgstr "Εμφανίζει μία μοναδική συμβουλή κάθε μέρα του έτους."
+
+#. URI of the plugin
+msgid "https://github.com/constracti/daytip"
+msgstr "https://github.com/constracti/daytip"
+
+#. Author of the plugin
+msgid "constracti"
+msgstr "constracti"

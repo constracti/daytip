@@ -60,15 +60,16 @@ add_action( 'admin_post_daytip_import', function() {
 	$lines = file( $file['tmp_name'], FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
 	$tips = [];
 	foreach ( $lines as $line ) {
-		$tip = mb_split( "\t", $line, 2 );
-		if ( count( $tip ) !== 2 || is_null( daytip_monthday::parse( $tip[0] ) ) )
+		$tip = mb_split( "\t", $line );
+		$title = array_shift( $tip );
+		if ( empty( $tip ) || is_null( daytip_monthday::parse( $title ) ) )
 			daytip_import_redirect( 3 );
-		$tips[] = $tip;
+		$tips[] = [ 'title' => $title, 'content' => implode( "\n", $tip ) ];
 	}
 	foreach ( $tips as $tip )
 		wp_insert_post( [
-'post_content' => $tip[1],
-'post_title' => $tip[0],
+'post_content' => $tip['content'],
+'post_title' => $tip['title'],
 'post_status' => 'publish',
 'post_type' => 'daytip',
 		] );

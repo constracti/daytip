@@ -67,4 +67,4 @@ add_action( 'init', function() {
 	] );
 } );
 
-// TODO customize messages, @see https://codex.wordpress.org/Function_Reference/register_post_type#Example
+// TODO customize messages, see https://codex.wordpress.org/Function_Reference/register_post_type#Example
